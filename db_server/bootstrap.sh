@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ $# -lt 1 ]; then
-  echo "Web server IP is a mandatory parameter."
-  exit 1
-fi
+# if [ $# -lt 1 ]; then
+#   echo "Web server IP is a mandatory parameter."
+#   exit 1
+# fi
 
 # workaround for overlayfs:
 # https://docs.docker.com/engine/userguide/storagedriver/overlayfs-driver/#limitations-on-overlayfs-compatibility
