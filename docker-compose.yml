@@ -6,6 +6,9 @@ services:
     environment:
       - WEB_SERVER_IP=131.155.35.54
     deploy: 
+      resources:
+          reservations:
+            memory: 2G
       placement: 
         constraints:
           - node.labels.node_number==4
