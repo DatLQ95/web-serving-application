@@ -47,7 +47,7 @@ ADD bootstrap.sh /etc/bootstrap.sh
 RUN chown root:root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
-EXPOSE 8888
+EXPOSE 8080
 
 CMD ["/etc/bootstrap.sh", "-d"]
 

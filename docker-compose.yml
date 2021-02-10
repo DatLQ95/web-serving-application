@@ -1,0 +1,31 @@
+version: "3.6"
+
+services:
+  db_server:
+    image: luongquocdat01091995/web-serving-application:db-server
+    environment:
+      - WEB_SERVER_IP=131.155.35.54
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==4
+  memcached_server: 
+    image: luongquocdat01091995/web-serving-application:memcached_server
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==4
+  web_server: 
+    image: luongquocdat01091995/web-serving-application:memcached_server
+    ports:
+      - 8080:8080
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==4
+  faban_client: 
+    image: luongquocdat01091995/web-serving-application:memcached_server
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==3
