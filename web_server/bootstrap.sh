@@ -1,6 +1,8 @@
 #!/bin/bash
-DB_SERVER_IP=${1:-"mysql_server"}
-MEMCACHE_SERVER_IP=${2:-"memcache_server"}
+
+# DB_SERVER_IP=${1:-"mysql_server"}
+# MEMCACHE_SERVER_IP=${2:-"memcache_server"}
+
 sed -i -e"s/mysql_server/${DB_SERVER_IP}/" elgg/engine/settings.php
 sed -i -e"s/'memcache_server'/'${MEMCACHE_SERVER_IP}'/" elgg/engine/settings.php
 

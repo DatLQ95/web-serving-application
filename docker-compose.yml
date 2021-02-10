@@ -19,15 +19,21 @@ services:
         constraints:
           - node.labels.node_number==4
   web_server: 
-    image: luongquocdat01091995/web-serving-application:memcached_server
+    image: luongquocdat01091995/web-serving-application:web_server
     ports:
       - 8080:8080
+    environment:
+      - DB_SERVER_IP=131.155.35.54
+      - MEMCACHE_SERVER_IP=131.155.35.54
     deploy: 
       placement: 
         constraints:
           - node.labels.node_number==4
   faban_client: 
-    image: luongquocdat01091995/web-serving-application:memcached_server
+    image: luongquocdat01091995/web-serving-application:faban_client
+    environment:
+      - WEB_SERVER_IP=131.155.35.54
+      - LOAD_SCALE=2
     deploy: 
       placement: 
         constraints:

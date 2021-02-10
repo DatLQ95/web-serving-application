@@ -1,17 +1,17 @@
 #!/bin/bash
 
-if [ $# -gt 2 ]; then
-  echo "Usage: faban_client WEB_SERVER_IP [LOAD_SCALE]"
-  exit 1
-fi
+# if [ $# -gt 2 ]; then
+#   echo "Usage: faban_client WEB_SERVER_IP [LOAD_SCALE]"
+#   exit 1
+# fi
 
-if [ $# -lt 1 ]; then
-  echo "Web server IP is a mandatory parameter."
-  exit 1
-fi
+# if [ $# -lt 1 ]; then
+#   echo "Web server IP is a mandatory parameter."
+#   exit 1
+# fi
 
-WEB_SERVER_IP=$1
-LOAD_SCALE=${2:-7}
+# WEB_SERVER_IP=$1
+# LOAD_SCALE=${2:-7}
 
 while [ "$(curl -sSI ${WEB_SERVER_IP}:8080 | grep 'HTTP/1.1' | awk '{print $2}')" != "200" ]; do
     echo "Could not perform HTTP 200 GET from: ${WEB_SERVER_IP}:8080"
